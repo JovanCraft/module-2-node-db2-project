@@ -1,7 +1,7 @@
 // STRETCH
 const cars = [
     {
-        vin: '1111111111111',
+        vin: '11111111111111111',
         make: 'Toyota',
         model: 'Corolla',
         mileage: 32173,
@@ -9,7 +9,7 @@ const cars = [
         transmission: 'automatic'
     },
     {
-        vin: '2222222222222',
+        vin: '22222222222222222',
         make: 'Nissan',
         model: 'GT-R',
         mileage: 5137,
@@ -17,21 +17,21 @@ const cars = [
         transmission: 'automatic'
     },
     {
-        vin: '3333333333333',
+        vin: '33333333333333333',
         make: 'Chrysler',
         model: 'Saratoga',
         mileage: 197862,
         transmission: 'manual'
     },
     {
-        vin: '4444444444444',
+        vin: '44444444444444444',
         make: 'Ford',
         model: 'Flex',
         mileage: 93019,
         title: 'salvage',
     },
     {
-        vin: '5555555555555',
+        vin: '55555555555555555',
         make: 'Honda',
         model: 'Accord',
         mileage: 73211,
@@ -39,7 +39,7 @@ const cars = [
         transmission: 'automatic'
     },
     {
-        vin: '6666666666666',
+        vin: '66666666666666666',
         make: 'Kia',
         model: 'Forte',
         mileage: 1218,
