@@ -4,13 +4,15 @@ const router = require('express').Router();
 const { checkCarId, checkCarPayload, checkVinNumberValid, checkVinNumberUnique } = require('./cars-middleware')
 
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
 
     Cars.getAll()
     .then(cars => {
         res.json(cars)
     })
-    .catch()
+    .catch(err => {
+        next(err)
+    })
 })
 
 router.get('/:id', checkCarId, (req, res) => {
