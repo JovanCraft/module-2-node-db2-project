@@ -1,7 +1,7 @@
 // DO YOUR MAGIC
 const Cars = require('./cars-model')
 const router = require('express').Router();
-const { checkCarId } = require('./cars-middleware')
+const { checkCarId, checkCarPayload } = require('./cars-middleware')
 
 
 router.get('/', (req, res) => {
@@ -18,8 +18,8 @@ router.get('/:id', checkCarId, (req, res) => {
     res.json(req.car)
 })
 
-router.post('/', (req, res) => {
-    //console.log('create wired')
+router.post('/', checkCarPayload, (req, res) => {
+
 })
 
 

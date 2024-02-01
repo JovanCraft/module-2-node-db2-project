@@ -5,7 +5,7 @@ const checkCarId = (req, res, next) => {
   Cars.getById(req.params.id)
   .then(car => {
     if(!car){
-      res.status(404).json({ message: 'id not found' })
+      res.status(404).json({ message: `car with id ${req.params.id} is not found` })
     } else {
       req.car = car;
       next()
@@ -21,6 +21,18 @@ const checkCarId = (req, res, next) => {
 
 const checkCarPayload = (req, res, next) => {
   // DO YOUR MAGIC
+  const { vin, make, model, mileage } = req.body
+  if(!vin){
+    next({status: 400, message: `vin is missing`})
+  } else if(!make){
+    next({status: 400, message: `make is missing`})
+  } else if(!model){
+    next({status: 400, message: `model is missing`})
+  } else if(!mileage){
+    next({status: 400, message: `mileage is missing`})
+  } else {
+    next()
+  }
 }
 
 const checkVinNumberValid = (req, res, next) => {

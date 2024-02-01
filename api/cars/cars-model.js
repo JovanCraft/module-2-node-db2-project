@@ -10,8 +10,10 @@ const getById = (id) => {
   return db('cars').where('id', id).first()
 }
 
-const create = () => {
+const create = (car) => {
   // DO YOUR MAGIC
+  const [id] = db('cars').insert(car);
+  return getById(id)
 }
 
 
