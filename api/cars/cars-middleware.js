@@ -21,16 +21,20 @@ const checkCarPayload = (req, res, next) => {
   // DO YOUR MAGIC
   const { vin, make, model, mileage } = req.body
   if(!vin){
-    next({status: 400, message: `vin is missing`})
+    //next({status: 400, message: `vin is missing`})
+    res.status(400).json({ message: `vin is missing` })
   }
   if(!make){
-    next({status: 400, message: `make is missing`})
+    //next({status: 400, message: `make is missing`})
+    res.status(400).json({ message: `make is missing` })
   }
   if(!model){
-    next({status: 400, message: `model is missing`})
+    //next({status: 400, message: `model is missing`})
+    res.status(400).json({ message: `model is missing` })
   }
   if(!mileage){
-    next({status: 400, message: `mileage is missing`})
+    //next({status: 400, message: `mileage is missing`})
+    res.status(400).json({ message: `mileage is missing` })
   } else {
     next()
   }
@@ -41,7 +45,8 @@ const checkVinNumberValid = (req, res, next) => {
   const { vin } = req.body
   const isValid = vinValidator.validate(vin)
   if(!isValid){
-    next({ status: 400, message: `vin ${vin} is invalid`})
+    //next({ status: 400, message: `vin ${vin} is invalid`})
+    res.status(400).json({ message: `vin ${vin} is invalid` })
   } else {
     next()
   }
@@ -53,7 +58,8 @@ const checkVinNumberUnique = async (req, res, next) => {
     const { vin } = req.body
     const existingCar = await Cars.getByVin(vin)
     if(existingCar){
-      next({ status: 400, message: `vin ${vin} already exists`})
+      //next({ status: 400, message: `vin ${vin} already exists`})
+      res.status(400).json({ message: `vin ${vin} already exists` })
     } else {
       next()
     }
