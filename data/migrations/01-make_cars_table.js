@@ -16,3 +16,4 @@ exports.down = async function (knex) {
   // DO YOUR MAGIC
   await knex.schema.dropTableIfExists('cars')
 };
+//should always create a down function to undo whatever the up function does!
