@@ -1,6 +1,7 @@
 // DO YOUR MAGIC
 const Cars = require('./cars-model')
 const router = require('express').Router();
+const { checkCarId } = require('./cars-middleware')
 
 
 router.get('/', (req, res) => {
@@ -12,12 +13,13 @@ router.get('/', (req, res) => {
     .catch()
 })
 
-router.get('/:id', (req, res) => {
-    console.log('getById wired')
+router.get('/:id', checkCarId, (req, res) => {
+
+    res.json(req.car)
 })
 
 router.post('/', (req, res) => {
-    console.log('create wired')
+    //console.log('create wired')
 })
 
 
