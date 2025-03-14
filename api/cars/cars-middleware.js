@@ -76,3 +76,9 @@ module.exports = {
 }
 
 //So apparently you can only use a next() to finish of the middleware. when I used res.json() in my if statement it worked!! FINISHED!
+
+
+
+
+
+
